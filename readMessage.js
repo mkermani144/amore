@@ -13,7 +13,7 @@ const main = async () => {
   console.log("This is the message:\n");
   console.log(box(message));
   console.log(
-    `Around \n${
+    `\nAround ${
       timeSpent / 1000n
     } seconds of CPU time was spent to generate this address`
   );
