@@ -5,6 +5,7 @@
     "hardhat": "^2.22.5"
   },
   "dependencies": {
+    "ascii-box": "^1.1.2",
     "ethers": "^6.13.0"
   }
 }
