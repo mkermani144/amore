@@ -8,7 +8,7 @@ contract LoveFactory {
 
     function deploy(
         string memory message,
-        uint16 timeSpent,
+        uint timeSpent,
         bytes32 salt
     ) public returns (address) {
         address addr = address(new TheMessage{salt: salt}(message, timeSpent));
