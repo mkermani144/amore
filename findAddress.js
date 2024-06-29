@@ -16,7 +16,7 @@ while (true) {
   nonce++;
   const address = ethers.getCreate2Address(
     factoryAddress,
-    "0x" + (nonce + BigInt(timeSpent)).toString(16).padStart(64, "0"),
+    ethers.toBeHex(nonce + BigInt(timeSpent)),
     ethers.keccak256(
       `${TheMessage.bytecode}${TheMessageInterface.encodeDeploy([
         message,

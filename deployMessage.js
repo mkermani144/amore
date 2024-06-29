@@ -12,7 +12,7 @@ const main = async () => {
   const result = await loveFactory.deploy(
     message,
     +timeSpent,
-    "0x" + (BigInt(timeSpent) + BigInt(nonce)).toString(16).padStart(64, "0")
+    ethers.toBeHex(BigInt(timeSpent) + BigInt(nonce)),
   );
 
   const waitedResult = await result.wait();
