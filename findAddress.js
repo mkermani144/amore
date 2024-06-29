@@ -9,6 +9,8 @@ const factoryAddress = process.argv[2];
 const endsWith = process.argv[3];
 const message = process.argv[4];
 
+const TheMessageInterface = new ethers.Interface(TheMessage.abi);
+
 while (true) {
   const timeSpent = Date.now() - started;
   nonce++;
@@ -16,9 +18,10 @@ while (true) {
     factoryAddress,
     "0x" + (nonce + BigInt(timeSpent)).toString(16).padStart(64, "0"),
     ethers.keccak256(
-      `${TheMessage.bytecode}${ethers.AbiCoder.defaultAbiCoder()
-        .encode(["string", "uint"], [message, timeSpent])
-        .slice(2)}`
+      `${TheMessage.bytecode}${TheMessageInterface.encodeDeploy([
+        message,
+        timeSpent,
+      ]).slice(2)}`
     )
   );
 
